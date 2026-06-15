@@ -2,35 +2,35 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
-    <title>browLab Clinic | Links</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Site | Exclusividade em Cada Detalhe</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET BÁSICO */
+        /* RESET BÁSICO E Acessibilidade */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* VARIÁVEIS DE CORES - Paleta Sofisticada */
         :root {
-            --cor-texto-escuro: #5C544D; /* Um taupe bem escuro para legibilidade */
+            --cor-texto-escuro: #4A443F; 
+            --cor-texto-medio: #6B635C;
             --cor-texto-claro: #FFFFFF;
-            --cor-destaque: #A3968A; /* Bege acinzentado do logo */
-            --cor-fundo-cartao: rgba(255, 255, 255, 0.75); /* Branco translúcido */
-            --cor-fundo-cartao-hover: rgba(255, 255, 255, 0.95);
+            --cor-destaque: #A3968A; 
+            --cor-destaque-hover: #8C7F73;
+            --cor-fundo-card: rgba(255, 255, 255, 0.85); 
+            --sombra-card: 0 8px 24px rgba(74, 68, 63, 0.08);
         }
 
-        /* FUNDO E CONTAINER MOBILE-FIRST */
         body {
-            /* Fundo principal com a imagem enviada (Anexo 2) */
-            background-color: #EAE6E1; /* Cor de fallback */
+            background-color: #EAE6E1;
             background-image: url('bg-textura.webp');
             background-size: cover;
             background-position: center;
@@ -39,176 +39,187 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
+            line-height: 1.6;
         }
 
         .container {
             width: 100%;
-            max-width: 480px; /* Mantém proporção de celular mesmo no PC */
+            max-width: 480px; 
             padding: 40px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* CABEÇALHO E LOGO */
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 24px;
+        /* HEADER E ANIMAÇÃO DA LOGO */
+        .profile-header {
             text-align: center;
-        }
-
-        .logo-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #FFFFFF;
-            box-shadow: 0 8px 24px rgba(92, 84, 77, 0.15);
-            margin-bottom: 16px;
-        }
-
-        .bio-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--cor-texto-escuro);
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-
-        .bio-description {
-            font-size: 0.9rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: var(--cor-texto-escuro);
-            margin-bottom: 8px;
-        }
-
-        .bio-location {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--cor-destaque);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        /* BOTÕES PRINCIPAIS */
-        .links-container {
+            margin-bottom: 32px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            align-items: center;
+        }
+
+        /* Contêiner que segura a logo e a borda animada */
+        .logo-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* O anel tracejado que gira */
+        .logo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            border: 2px dashed var(--cor-destaque);
+            animation: spin 10s linear infinite;
+        }
+
+        /* Animação do giro */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--cor-texto-claro);
+            position: relative;
+            z-index: 2;
+            background-color: #FFF; /* Fundo branco caso a logo seja transparente */
+            box-shadow: var(--sombra-card);
+        }
+
+        .bio-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .bio-description {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--cor-texto-medio);
+            margin-bottom: 12px;
+        }
+
+        .bio-location {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--cor-destaque);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border: 1px solid var(--cor-destaque);
+            border-radius: 20px;
+        }
+
+        /* CARDS DE PROCEDIMENTO */
+        .services-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-bottom: 40px;
         }
 
-        .btn {
+        .service-card {
+            background: var(--cor-fundo-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--sombra-card);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(74, 68, 63, 0.12);
+        }
+
+        .card-destaque {
+            border: 1px solid var(--cor-destaque);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .service-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .service-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cor-texto-escuro);
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--cor-texto-medio);
+            margin-bottom: 20px;
+        }
+
+        /* BOTÕES DE AÇÃO */
+        .btn-agendar {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 16px 20px;
-            background-color: var(--cor-fundo-cartao);
-            color: var(--cor-texto-escuro);
+            height: 48px;
+            background-color: transparent;
+            color: var(--cor-destaque);
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 8px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            border: 1px solid var(--cor-destaque);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px); /* Efeito vidro sofisticado */
-            position: relative;
         }
 
-        .btn:hover {
-            background-color: var(--cor-fundo-cartao-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(92, 84, 77, 0.1);
+        .btn-agendar:hover, .btn-agendar:active {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto-claro);
         }
 
-        .btn-icon {
-            width: 24px;
-            height: 24px;
-            position: absolute;
-            left: 20px;
-        }
-
-        /* BOTÃO DESTAQUE EXOBROWS */
         .btn-destaque {
             background-color: var(--cor-destaque);
             color: var(--cor-texto-claro);
-            font-weight: 600;
-            border: none;
-        }
-        
-        .btn-destaque:hover {
-            background-color: #8A7D71; /* Taupe mais escuro */
-            color: var(--cor-texto-claro);
         }
 
-        /* SEÇÃO DE PROCEDIMENTOS (GRID DE ÍCONES) */
-        .services-section {
-            width: 100%;
-            text-align: center;
+        .btn-destaque:hover, .btn-destaque:active {
+            background-color: var(--cor-destaque-hover);
+            border-color: var(--cor-destaque-hover);
         }
 
-        .services-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: var(--cor-texto-escuro);
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Linha decorativa embaixo do título */
-        .services-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background-color: var(--cor-destaque);
-            margin: 8px auto 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
-            gap: 16px;
-        }
-
-        .service-card {
-            background-color: var(--cor-fundo-cartao);
-            padding: 20px 12px;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-        }
-
-        .service-icon {
-            width: 36px;
-            height: 36px;
-            margin-bottom: 12px;
-            opacity: 0.8; /* Deixa o ícone um pouco mais suave */
-        }
-
-        .service-name {
-            font-size: 0.85rem;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        /* RODAPÉ */
         footer {
-            margin-top: 40px;
             font-size: 0.75rem;
-            color: var(--cor-texto-escuro);
-            opacity: 0.7;
+            color: var(--cor-texto-medio);
             text-align: center;
+            padding-bottom: 20px;
         }
     </style>
 </head>
@@ -216,89 +227,143 @@
 
     <div class="container">
         
-        <header class="profile-container">
-            <img src="logo-browlab.webp" alt="browLab Clinic" class="logo-img">
-            <h1 class="bio-title">browLab Clinic</h1>
-            <p class="bio-description">Especialistas em realçar sua beleza natural com exclusividade e design refinado.</p>
-            <span class="bio-location">📍 São Bernardo do Campo, SP</span>
+        <header class="profile-header">
+            <div class="logo-wrapper">
+                <img src="logo-browlab.webp" alt="Logo da Clínica" class="logo-img">
+            </div>
+            
+            <h1 class="bio-title">Império das Sobrancelhas</h1>
+            <p class="bio-description">Alta performance em estética facial. Realçamos sua beleza natural com sofisticação e técnicas exclusivas.</p>
+            <div class="bio-location">São Bernardo do Campo</div>
         </header>
 
-        <nav class="links-container">
-            <a href="URL_DO_WHATSAPP_EXOBROWS" class="btn btn-destaque">
-                <img src="icone-exobrows.png" alt="Exobrows" class="btn-icon">
-                Conheça o Exobrows ✨
-            </a>
+        <main class="services-list">
             
-            <a href="URL_DO_WHATSAPP" class="btn">
-                <img src="icone-whatsapp.png" alt="WhatsApp" class="btn-icon">
-                Agendar Consulta
-            </a>
-            
-            <a href="URL_DO_INSTAGRAM" class="btn">
-                <img src="icone-instagram.png" alt="Instagram" class="btn-icon">
-                Nosso Instagram
-            </a>
-        </nav>
+            <article class="service-card card-destaque">
+                <div class="card-header">
+                    <img src="icone-exobrows.png" alt="Exobrows" class="service-icon">
+                    <h2 class="service-title">Exobrows</h2>
+                </div>
+                <p class="service-desc">Nosso procedimento assinatura. O ápice do cuidado e regeneração celular para sobrancelhas saudáveis, volumosas e impecáveis.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20procedimento%20Exobrows." class="btn-agendar btn-destaque" target="_blank" rel="noopener noreferrer">
+                    Agendar Exobrows
+                </a>
+            </article>
 
-        <section class="services-section">
-            <h2 class="services-title">Nossos Procedimentos</h2>
-            
-            <div class="services-grid">
-                
-                <div class="service-card">
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-design.png" alt="Design Personalizado" class="service-icon">
-                    <span class="service-name">Design Personalizado</span>
+                    <h2 class="service-title">Design Personalizado</h2>
                 </div>
-                
-                <div class="service-card">
+                <p class="service-desc">Realce sua expressão com um desenho estratégico, perfeitamente alinhado à simetria única do seu rosto.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Design%20Personalizado." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Design
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-tintura.png" alt="Tintura" class="service-icon">
-                    <span class="service-name">Tintura</span>
+                    <h2 class="service-title">Tintura</h2>
                 </div>
-                
-                <div class="service-card">
+                <p class="service-desc">Cores vibrantes e duradouras que conferem volume e definição instantânea aos fios da sua sobrancelha.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20a%20Tintura." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Tintura
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-epilacao.png" alt="Epilação Egípcia" class="service-icon">
-                    <span class="service-name">Epilação Egípcia</span>
+                    <h2 class="service-title">Epilação Egípcia</h2>
                 </div>
-                
-                <div class="service-card">
+                <p class="service-desc">Pele perfeitamente lisa e livre de penugens através de uma técnica milenar, extremamente suave e de alta precisão.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20a%20Epila%C3%A7%C3%A3o%20Eg%C3%ADpcia." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Epilação
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-lamination.png" alt="Brow Lamination" class="service-icon">
-                    <span class="service-name">Brow Lamination</span>
+                    <h2 class="service-title">Brow Lamination</h2>
                 </div>
-                
-                <div class="service-card">
+                <p class="service-desc">Fios estruturados, encorpados e alinhados. O cobiçado efeito *fluffy* que entrega um visual moderno e sofisticado.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Brow%20Lamination." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Lamination
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-nanofios.png" alt="Nanofios" class="service-icon">
-                    <span class="service-name">Nanofios</span>
+                    <h2 class="service-title">Nanofios</h2>
                 </div>
-                
-                <div class="service-card">
-                    <img src="icone-remocao.png" alt="Remoção a Laser" class="service-icon">
-                    <span class="service-name">Remoção de Micropigmentação</span>
+                <p class="service-desc">Naturalidade extrema. Criamos fios incrivelmente finos e realistas para preencher falhas com perfeição indetectável.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20os%20Nanofios." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Nanofios
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
+                    <img src="icone-remocao.png" alt="Remoção" class="service-icon">
+                    <h2 class="service-title">Remoção a Laser</h2>
                 </div>
-                
-                <div class="service-card">
+                <p class="service-desc">Recupere a naturalidade da sua pele com nosso protocolo de despigmentação seguro, moderno e altamente eficaz.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20a%20Remo%C3%A7%C3%A3o%20de%20Micropigmenta%C3%A7%C3%A3o." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Remoção
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-nanolips.png" alt="Nanolips" class="service-icon">
-                    <span class="service-name">Nanolips</span>
+                    <h2 class="service-title">Nanolips</h2>
                 </div>
-                
-                <div class="service-card">
+                <p class="service-desc">Lábios revitalizados, com contorno delicado e um toque de cor natural que dispensa o uso diário de batom.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Nanolips." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Nanolips
+                </a>
+            </article>
+
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-hidragloss.png" alt="Hidragloss" class="service-icon">
-                    <span class="service-name">Hidragloss</span>
+                    <h2 class="service-title">Hidragloss</h2>
                 </div>
+                <p class="service-desc">Tratamento de super-hidratação labial que promove rejuvenescimento, textura aveludada e um brilho intenso.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Hidragloss." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Hidragloss
+                </a>
+            </article>
 
-                <div class="service-card">
+            <article class="service-card">
+                <div class="card-header">
                     <img src="icone-lash.png" alt="Lash Lifting" class="service-icon">
-                    <span class="service-name">Lash Lifting</span>
+                    <h2 class="service-title">Lash Lifting</h2>
                 </div>
+                <p class="service-desc">Curvatura, hidratação e alongamento natural dos seus cílios. Abra seu olhar sem necessidade de manutenção constante.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Lash%20Lifting." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Lash Lifting
+                </a>
+            </article>
 
-                <div class="service-card" style="grid-column: span 2;"> <img src="icone-transplante.png" alt="Transplante" class="service-icon">
-                    <span class="service-name">Desenho Cirúrgico (Transplante de Sobrancelhas)</span>
+            <article class="service-card">
+                <div class="card-header">
+                    <img src="icone-transplante.png" alt="Transplante" class="service-icon">
+                    <h2 class="service-title">Desenho Cirúrgico</h2>
                 </div>
+                <p class="service-desc">Consultoria especializada em planejamento e simetria pré-cirúrgica impecável para o transplante de sobrancelhas.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Desenho%20Cir%C3%BArgico%20para%20Transplante." class="btn-agendar" target="_blank" rel="noopener noreferrer">
+                    Agendar Consultoria
+                </a>
+            </article>
 
-            </div>
-        </section>
+        </main>
 
         <footer>
-            <p>&copy; 2026 browLab Clinic. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Clínica de Estética. Todos os direitos reservados.</p>
         </footer>
 
     </div>
