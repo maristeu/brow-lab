@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET BÁSICO E ACESSIBILIDADE */
+        /* RESET BÁSICO */
         * {
             margin: 0;
             padding: 0;
@@ -20,19 +20,19 @@
         }
 
         :root {
-            --cor-texto-escuro: #FFFFFF; /* Agora o texto principal é branco */
-            --cor-texto-medio: #D1CBC5; /* Cinza claro/greige para as descrições */
-            --cor-texto-claro: #121212; /* Texto escuro para quando passar o mouse no botão destaque */
-            --cor-destaque: #C5A880; /* Um tom de greige mais puxado pro dourado champanhe */
-            --cor-destaque-hover: #E3CDB0;
-            --cor-fundo-card: rgba(20, 20, 20, 0.65); /* Fundo quase preto e translúcido */
-            --sombra-card: 0 8px 32px rgba(0, 0, 0, 0.6); /* Sombra mais forte para dar profundidade */
+            --cor-texto-escuro: #4A443F; 
+            --cor-texto-medio: #6B635C;
+            --cor-texto-claro: #FFFFFF;
+            --cor-destaque: #A3968A; 
+            --cor-destaque-hover: #8C7F73;
+            --cor-fundo-card: rgba(255, 255, 255, 0.9); /* Cartões bem brancos e translúcidos */
+            --sombra-card: 0 8px 32px rgba(74, 68, 63, 0.15); /* Sombra um pouco mais marcada para dar 3D */
         }
 
         body {
-            background-color: #121212;
-            /* Filtro muito escuro por cima da textura */
-            background-image: linear-gradient(rgba(15, 15, 15, 0.85), rgba(0, 0, 0, 0.95)), url('bg-textura.webp'); 
+            background-color: #EAE6E1;
+            /* O SEGREDO DO CONTRASTE: Um degradê suave em tons de greige por cima da textura */
+            background-image: linear-gradient(rgba(163, 150, 138, 0.25), rgba(74, 68, 63, 0.5)), url('bg-textura.webp'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -53,7 +53,7 @@
             align-items: center;
         }
 
-        /* HEADER E ANIMAÇÃO DA LOGO "INSTA-STYLE" */
+        /* HEADER E LOGO */
         .profile-header {
             text-align: center;
             margin-bottom: 24px;
@@ -109,28 +109,32 @@
             font-weight: 600;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
+            color: #FFFFFF; /* Título em branco para contrastar com o fundo */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .bio-description {
             font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--cor-texto-medio);
+            font-weight: 500;
+            color: #F5F5F5; /* Descrição clarinha */
             margin-bottom: 12px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .bio-location {
             display: inline-block;
             font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--cor-destaque);
+            font-weight: 600;
+            color: #FFFFFF;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 4px 12px;
-            border: 1px solid var(--cor-destaque);
+            border: 1px solid #FFFFFF;
             border-radius: 20px;
+            background: rgba(255,255,255,0.1);
         }
 
-        /* SEÇÃO: BOTÕES DE CONTATO (PÍLULA) */
+        /* BOTÕES DE CONTATO (PÍLULA) */
         .contact-section {
             width: 100%;
             display: flex;
@@ -141,42 +145,44 @@
 
         .contact-title {
             font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--cor-texto-escuro);
+            font-weight: 600;
+            color: #FFFFFF;
             text-align: center;
             margin-bottom: 8px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .pill-btn {
             display: flex;
             align-items: center;
             width: 100%;
-            background-color: rgba(30, 30, 30, 0.5); /* Fundo escuro */
-            border: 1px solid rgba(255, 255, 255, 0.15); /* Borda bem sutil */
+            background-color: var(--cor-fundo-card);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 50px;
             padding: 6px 16px 6px 6px;
             text-decoration: none;
             color: var(--cor-texto-escuro);
             transition: all 0.3s ease;
             backdrop-filter: blur(8px);
+            box-shadow: var(--sombra-card);
         }
 
         .pill-btn:hover, .pill-btn:active {
-            background-color: rgba(50, 50, 50, 0.8);
+            background-color: #FFFFFF;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(74, 68, 63, 0.2);
         }
 
         .pill-icon-wrapper {
             width: 44px;
             height: 44px;
-            background-color: #FFFFFF;
+            background-color: #F5F5F5;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-right: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
             flex-shrink: 0;
         }
 
@@ -187,11 +193,11 @@
         }
 
         .pill-text {
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
         }
 
-        /* CARDS DE PROCEDIMENTO (UI/UX VERTICAL) */
+        /* CARDS DE PROCEDIMENTO */
         .services-list {
             width: 100%;
             display: flex;
@@ -203,7 +209,7 @@
         .service-card {
             background: var(--cor-fundo-card);
             backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Borda clarinha quase invisível */
+            border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 16px;
             padding: 24px;
             box-shadow: var(--sombra-card);
@@ -212,12 +218,12 @@
 
         .service-card:hover, .service-card:active {
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 12px 32px rgba(74, 68, 63, 0.25);
         }
 
         .card-destaque {
-            border: 1px solid var(--cor-destaque);
-            background: rgba(35, 30, 25, 0.8); /* Um tom levemente aquecido pro card VIP */
+            border: 2px solid var(--cor-destaque);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .card-header {
@@ -235,7 +241,7 @@
 
         .service-title {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--cor-texto-escuro);
         }
 
@@ -243,6 +249,7 @@
             font-size: 0.85rem;
             color: var(--cor-texto-medio);
             margin-bottom: 20px;
+            font-weight: 500;
         }
 
         /* BOTÕES DE AÇÃO (CTA) */
@@ -256,9 +263,9 @@
             color: var(--cor-destaque);
             text-decoration: none;
             border-radius: 8px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.9rem;
-            border: 1px solid var(--cor-destaque);
+            border: 2px solid var(--cor-destaque);
             transition: all 0.3s ease;
         }
 
@@ -277,58 +284,49 @@
             border-color: var(--cor-destaque-hover);
         }
 
-        /* ====== NOVO: BOTÃO FLUTUANTE WHATSAPP ====== */
+        /* BOTÃO FLUTUANTE WHATSAPP */
         .whatsapp-float {
             position: fixed;
             width: 60px;
             height: 60px;
             bottom: 20px;
             right: 20px;
-            background-color: var(--cor-fundo-card); /* Mantendo a estética glass */
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: var(--cor-fundo-card); 
+            border: 1px solid rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 16px rgba(74, 68, 63, 0.15);
-            z-index: 1000; /* Garante que fica por cima de tudo */
+            box-shadow: 0 4px 16px rgba(74, 68, 63, 0.2);
+            z-index: 1000; 
             transition: all 0.3s ease;
-            
-            /* Animação sutil de pulso para UI/UX */
             animation: pulseFAB 2s infinite;
         }
 
         .whatsapp-float:hover, .whatsapp-float:active {
             transform: scale(1.1) translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: #FFFFFF;
         }
 
         .whatsapp-float img {
-            width: 35px; /* Tamanho do ícone dentro do círculo */
+            width: 35px; 
             height: 35px;
             object-fit: contain;
         }
 
-        /* Definição da animação de pulso */
         @keyframes pulseFAB {
-            0% {
-                box-shadow: 0 4px 16px rgba(74, 68, 63, 0.15);
-            }
-            50% {
-                box-shadow: 0 4px 25px rgba(163, 150, 138, 0.3); /* Pulsa na cor de destaque */
-            }
-            100% {
-                box-shadow: 0 4px 16px rgba(74, 68, 63, 0.15);
-            }
+            0% { box-shadow: 0 4px 16px rgba(74, 68, 63, 0.2); }
+            50% { box-shadow: 0 4px 25px rgba(163, 150, 138, 0.5); }
+            100% { box-shadow: 0 4px 16px rgba(74, 68, 63, 0.2); }
         }
-        /* ============================================ */
 
         footer {
             font-size: 0.75rem;
-            color: var(--cor-texto-medio);
+            color: #EAE6E1;
             text-align: center;
             padding-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -350,11 +348,11 @@
             <h2 class="contact-title">Agende seu Horário</h2>
             
             <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20e%20saber%20mais%20sobre%20os%20procedimentos%20da%20cl%C3%ADnica." class="pill-btn" target="_blank" rel="noopener noreferrer">
-    <div class="pill-icon-wrapper">
-        <img src="icon-whatsapp3.png" alt="WhatsApp">
-    </div>
-    <span class="pill-text">WhatsApp</span>
-</a>
+                <div class="pill-icon-wrapper">
+                    <img src="icon-whatsapp.png" alt="WhatsApp">
+                </div>
+                <span class="pill-text">WhatsApp</span>
+            </a>
 
             <a href="https://instagram.com/browlab.clinic" class="pill-btn" target="_blank" rel="noopener noreferrer">
                 <div class="pill-icon-wrapper">
@@ -371,7 +369,7 @@
                     <img src="icone-exobrows.png" alt="Exobrows" class="service-icon">
                     <h2 class="service-title">Exobrows</h2>
                 </div>
-                <p class="service-desc">Preenchimento de falhas de dentro para fora. Tecnologia coreana em exossomos para reativar o crescimento folicular e devolver o volume e a espessura natural das suas sobrancelhas.</p>
+                <p class="service-desc">Nosso procedimento assinatura. O ápice do cuidado e regeneração celular para sobrancelhas saudáveis, volumosas e impecáveis.</p>
                 <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20procedimento%20Exobrows." class="btn-agendar btn-destaque" target="_blank" rel="noopener noreferrer">
                     Agendar Exobrows
                 </a>
@@ -404,7 +402,7 @@
                     <img src="icone-epilacao.png" alt="Epilação Egípcia" class="service-icon">
                     <h2 class="service-title">Epilação Egípcia</h2>
                 </div>
-                <p class="service-desc">Técnica de remoção dos pelos com linha de algodão, conhecida por sua precisão e delicadeza. Ideal para o design de sobrancelhas e para áreas sensíveis do rosto, proporciona um acabamento limpo e definido, removendo os pelos desde a raiz sem agredir a pele</p>
+                <p class="service-desc">Pele perfeitamente lisa e livre de penugens através de uma técnica milenar, extremamente suave e de alta precisão.</p>
                 <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20a%20Epila%C3%A7%C3%A3o%20Eg%C3%ADpcia." class="btn-agendar" target="_blank" rel="noopener noreferrer">
                     Agendar Epilação
                 </a>
@@ -415,7 +413,7 @@
                     <img src="icone-lamination.png" alt="Brow Lamination" class="service-icon">
                     <h2 class="service-title">Brow Lamination</h2>
                 </div>
-                <p class="service-desc">Técnica que alinha, organiza e reposiciona os fios das sobrancelhas, proporcionando mais definição, simetria e sensação de volume. Ideal para fios desalinhados, rebeldes ou com falhas visuais, resultando em sobrancelhas mais harmoniosas e naturais.</p>
+                <p class="service-desc">Fios estruturados, encorpados e alinhados. O cobiçado efeito *fluffy* que entrega um visual moderno e sofisticado.</p>
                 <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20e%20saber%20mais%20sobre%20o%20Brow%20Lamination." class="btn-agendar" target="_blank" rel="noopener noreferrer">
                     Agendar Lamination
                 </a>
@@ -495,8 +493,9 @@
 
     </div>
 
-    <a href="https://wa.me/5511939460340" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20e%20saber%20mais%20sobre%20os%20procedimentos%20da%20cl%C3%ADnica." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <img src="whatsapp-icone2.png" alt="Agendar no WhatsApp">
     </a>
-    </body>
+
+</body>
 </html>
