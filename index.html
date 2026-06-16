@@ -31,17 +31,28 @@
 
         body {
             background-color: #EAE6E1;
-            /* Imagem original respeitada 100%, sem filtros escurecendo */
-            background-image: url('bg-textura.webp'); 
-            background-size: cover;
-            background-position: top center;
-            background-repeat: no-repeat;
             color: var(--cor-texto-escuro);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             line-height: 1.6;
             padding-bottom: 80px; 
+            /* Retiramos a imagem daqui para colocar na camada fixa abaixo */
+        }
+
+        /* O SEGREDO DA NITIDEZ NO CELULAR: 
+           Camada fixa no tamanho exato da tela que não estica a imagem */
+        body::before {
+            content: "";
+            position: fixed; /* Fica fixo na tela */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh; /* Tamanho exato da tela, sem esticar */
+            background-image: url('bg-textura.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Garante que fique atrás de tudo */
         }
 
         .container {
@@ -526,7 +537,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 Brow Lab. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Brow Lab Clinic. Todos os direitos reservados.</p>
         </footer>
 
     </div>
