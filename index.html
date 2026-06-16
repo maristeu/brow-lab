@@ -31,11 +31,12 @@
 
         body {
             background-color: #EAE6E1;
-            /* Filtro bem suave apenas para dar profundidade, mantendo o fundo claro */
-            background-image: linear-gradient(rgba(163, 150, 138, 0.1), rgba(74, 68, 63, 0.3)), url('bg-textura.webp'); 
+            /* NOVA CONFIGURAÇÃO DE FUNDO: Otimizado para celular (Sem zoom/borrado) usando o novo arquivo[cite: 2] */
+            background-image: linear-gradient(rgba(163, 150, 138, 0.1), rgba(74, 68, 63, 0.3)), url('bg-textura_2.webp'); 
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-position: top center;
+            background-repeat: no-repeat;
+            /* Removido o 'background-attachment: fixed' que causava o blur no mobile */
             color: var(--cor-texto-escuro);
             min-height: 100vh;
             display: flex;
@@ -104,7 +105,6 @@
             background-color: #FFF; 
         }
 
-        /* AJUSTE DE CONTRASTE: Textos do topo agora são escuros para dar leitura no fundo claro */
         .bio-title {
             font-size: 1.4rem;
             font-weight: 700;
@@ -130,7 +130,7 @@
             padding: 4px 12px;
             border: 1px solid var(--cor-destaque);
             border-radius: 20px;
-            background: rgba(255,255,255,0.4); /* Fundo sutil para destacar a borda */
+            background: rgba(255,255,255,0.4); 
         }
 
         /* BOTÃO DE CONTATO PRINCIPAL (PÍLULA) */
@@ -219,9 +219,10 @@
             box-shadow: 0 12px 32px rgba(74, 68, 63, 0.25);
         }
 
+        /* AJUSTE NO EXOBROWS: Apenas contorno (borda colorida), fundo igual aos outros */
         .card-destaque {
             border: 2px solid var(--cor-destaque);
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--cor-fundo-card); /* Mantém o mesmo fundo translúcido dos demais */
         }
 
         .card-header {
@@ -507,7 +508,6 @@
                 </a>
             </article>
 
-            <!-- NOVO BLOCO: FORMAÇÕES PRESENCIAIS -->
             <div class="section-divider">
                 <span>Cursos & Mentorias</span>
             </div>
